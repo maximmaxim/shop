@@ -82,7 +82,7 @@ Rails::Initializer.run do |config|
 #    :user_name        => "username",
 #    :password         => "password"
  # }
-
+  config.time_zone = 'UTC'
 
 
   # The internationalization framework can be changed to have another default locale (standard is :en) or more load paths.

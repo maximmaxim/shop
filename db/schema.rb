@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101018192820) do
+ActiveRecord::Schema.define(:version => 20101027204641) do
 
   create_table "line_items", :force => true do |t|
     t.integer  "product_id",                                :null => false
@@ -24,12 +24,13 @@ ActiveRecord::Schema.define(:version => 20101018192820) do
   add_index "line_items", ["product_id"], :name => "fk_line_item_products"
 
   create_table "orders", :force => true do |t|
-    t.string   "name"
-    t.text     "address"
+    t.string   "name",       :limit => 60,                   :null => false
+    t.string   "address",    :limit => 60,                   :null => false
     t.string   "mail"
-    t.string   "pay_type",   :limit => 10
+    t.string   "pay_type",   :limit => 60,                   :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "done",                     :default => "No"
   end
 
   create_table "products", :force => true do |t|

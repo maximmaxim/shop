@@ -8,5 +8,6 @@ belongs_to :product
   li.quantity=cart_item.quantity
   li.total_price=cart_item.price
   li
+  
  end
 end

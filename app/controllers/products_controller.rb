@@ -13,11 +13,4 @@ make_resourceful do
     @current_objects ||= Product.paginate :page => params[:page], :per_page => 5
   end
 
-  #def orders
- #@orders=Order.find(:all)
-  #@line_items=Line_item.find(:all)
-  #end
-
-
-
 end

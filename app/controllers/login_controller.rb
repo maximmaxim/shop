@@ -18,7 +18,7 @@ class LoginController < ApplicationController
 	  uri = session[:original_uri]
 	  session[:original_uri] = nil
 	  if (user.is_admin == "yes")
-	  redirect_to(uri || {:controller=>"products", :action => "index"})
+	  redirect_to(uri || {:controller=>"orders", :action => "index"})
 	  else 
  	  redirect_to(uri || {:controller=>"store", :action => "index"})
           end 
