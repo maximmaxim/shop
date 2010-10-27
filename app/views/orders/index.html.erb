@@ -11,6 +11,7 @@
     <th>Количество</th>
     <th>Цена товара</th>
 	<th>Общая сумма</th>
+<th>ОТработано</th>
   </tr>
 	<td><%=order.id%></td>     
 	<td><%= h (order.name) %></td>
@@ -55,9 +56,30 @@
 </td>
 <td>
 <%=@summ %>
-</td>      
+</td>   
+<td>
+<%=order.done%>
+</td>   
 
- <td><%= link_to 'Destroy', order, :confirm => 'Are you sure?', :method => :delete %></td>        
+<td>
+<%=order.created_at%>
+<br>
+<%=order.updated_at%>
+<br>
+<%=Time.now %>
+<%if order.created_at > (Time.now-1.hours)%>
+lllllll
+<%end%>
+</td>
+
+ <td>
+<%if order.done=="Yes"-%>
+<div>Отработано!</div>
+<%elsif order.done=="No"-%>
+<%= button_to ('Отработать заказ', {:action => :product_decrement, :id=>order.id},:confirm=>"Вы уверены что надо отработать заказ ???") %> 
+<%end%>
+</td>   
+    
 
 </table>
 <%end%>
