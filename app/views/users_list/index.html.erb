@@ -1,0 +1,27 @@
+<h1>Список человеков</h1>
+<%=link_to "НАзад", :back %>
+<table border=1>
+  <tr>
+    <th>Имя</th>
+    <th>Пароль</th>
+    <th>Почта</th>
+    <th>Аватар</th> 
+  </tr>
+
+<% for user in @users_list %>
+  <tr >
+    <td><%=h user.name %></td>
+    <td><%= h (User.encrypted_password(user.hashed_password, user.salt) )  %></td>
+    <td><%=h user.mail %></td>
+    <td><img src="<%=h user.avatar %>"></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<div class="Next">
+<%= link_to 'Назад', :back %>
+<%= will_paginate @current_object %>
+</div>
+

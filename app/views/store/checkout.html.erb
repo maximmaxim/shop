@@ -1,0 +1,30 @@
+<div>
+<%= error_messages_for 'order' %>
+
+<% form_for :order, :url => { :action => :save_order } do |form| %>
+  <fieldset>
+  <legend>Пож-ста введи данные о себе</legend>   
+   <p>
+   <%= form.label :name, "ФИО" %>
+   <%= form.text_field :name, :size => 40 %>
+   </p>  
+  <p>
+   <%= form.label :address, "Адрес" %>
+   <%= form.text_area :address, :rows => 3, :cols=>40 %>
+   </p>  
+  <p>
+   <%= form.label :mail, "Почта" %>
+   <%= form.text_field :mail, :size => 40 %>
+   </p>  
+  <p>
+   <%=form.label :pay_type, "Способ оплаты"%>
+   <%= form.select :pay_type,
+		   Order::PAYMENT_TYPES,
+		   :prompt => "Выберите способ оплаты" 
+    %>
+   </p>  
+   <%= submit_tag "Подтвердить заказ", :class => "submit" %>
+
+  </fieldset>
+<% end %>
+</div>

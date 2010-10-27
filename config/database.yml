@@ -1,0 +1,20 @@
+login: &login
+  adapter: mysql
+  encoding: utf8
+  pool: 5
+  username: root
+  password: 
+  socket: /var/run/mysqld/mysqld.sock
+
+development:
+  <<: *login
+  database: shop_development
+
+test:
+  <<: *login
+  database: autonanny_test
+
+production:
+  <<: *login
+  database: autonanny_prod
+

@@ -1,0 +1,20 @@
+<h1>Наш магазин</h1>
+<br>
+<%for product in @store -%>
+<table border=1>
+<tr height="150">
+	<td width=100><%= image_tag product.avatar.url(:thumb) %>
+	</td>
+	<td width=250><h3><%= h(product.name) %></h3>
+	</td>
+	<td width=400><%=h (truncate (product.description,80)) %>
+	</td>
+	<td width=50><span class="price"><%=h product.price %></span>
+	</td>
+	<td><%= button_to "Добавить в корзину", :action=> :add_to_cart, :id => product %>
+	</td>	
+</tr>
+</table>
+<% end %>	
+<br>
+<%= will_paginate (@store) %>

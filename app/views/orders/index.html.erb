@@ -1,0 +1,65 @@
+<h1>Текущие заказы</h1>
+<%for order in @orders -%>
+<table border=1>
+  <tr>
+<th> Number </th>
+    <th>Имя</th>
+    <th>Адрес</th>
+    <th>Почта</th>
+	<th>Тип оплаты</th>
+    <th>Товар</th> 
+    <th>Количество</th>
+    <th>Цена товара</th>
+	<th>Общая сумма</th>
+  </tr>
+	<td><%=order.id%></td>     
+	<td><%= h (order.name) %></td>
+	   <td><%= h (order.address) %></td>
+	   <td><%= h (order.mail) %></td>
+	   <td><%= h (order.pay_type) %></td>	
+	   <td> 
+              <% 
+		for item in @items 
+  		product = item.product
+
+		-%>
+		<%if (item.order_id == order.id)%>
+		<%= h(product.name) %>
+		<br>			
+		<%end%>
+               <%end%>
+		</td>
+	<td>
+<% 
+		for item in @items
+  		product = item.product
+		-%>
+		<%if (item.order_id == order.id)%>
+<%= item.quantity %>
+<br>
+  <%end%>
+               <%end%>
+</td>
+<%@summ=0%>
+<td align="center">
+<% 
+		for item in @items
+  		product = item.product
+		-%>
+		<%if (item.order_id == order.id)%>
+<%= item.total_price %>
+<%@summ += item.total_price %>
+<br>
+  <%end%>
+               <%end%>
+</td>
+<td>
+<%=@summ %>
+</td>      
+
+ <td><%= link_to 'Destroy', order, :confirm => 'Are you sure?', :method => :delete %></td>        
+
+</table>
+<%end%>
+<br />
+

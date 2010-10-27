@@ -1,0 +1,25 @@
+<div>
+<%= error_messages_for 'user'%>
+<fieldset>
+<legend>Введите данные пользователя</legend>
+<% form_for :user do |f| %>
+<p>
+	<label for="user_name" >Имя:</label>
+	<%= f.text_field :name, :size=>40 %>
+</p>
+<p>
+	<label for="user_mail" >Почта:</label>
+	<%= f.text_field :mail, :size=>40 %>
+</p>
+<p>
+	<label for="user_password" >Пароль:</label>
+	<%= f.password_field :password, :size=>40 %>
+</p>
+<p>
+	<label for="user_password_confirmation" >Повторите пароль:</label>
+	<%= f.password_field :password_confirmation, :size=>40 %>
+</p>
+	<%= submit_tag "Зарегать пользователя", :class => "submit", :confirm=>"Все правильно введено?"%>
+	<% end %>
+	</fieldset>
+</div>

@@ -1,0 +1,42 @@
+<h1>Посмотреть список пользователей</h1>
+<%=link_to "Пользователи", :controller=>:users_list, :action=>:index %>
+<br>
+Всего у нас висит: <%= @total_orders %> заказов
+<h1>Список продуктов</h1>
+
+<table>
+  <tr>
+    <th>Имя</th>
+    <th>Модель</th>
+    <th>Описание</th>
+    <th>Размер</th> 
+    <th>Количество</th>
+    <th>Цена</th>
+    <th>Цвет</th>
+    <th>Картинка</th>
+  </tr>
+
+<% for product in @products %>
+  <tr>
+    <td><%=h product.name %></td>
+    <td><%=h product.model_of_name %></td>
+    <td width="30%"><%=h (truncate (product.description,80)) %></td>
+    <td><%=h product.size %></td>
+    <td><%=h product.quontity %></td>
+    <td><%=h product.price %></td>
+    <td><%=h product.color %></td>
+    <td align="center"><%= image_tag product.avatar.url(:thumb) %></td>
+    <td><%= link_to 'Показать', product %></td>
+    <td><%= link_to 'Исправить', edit_product_path(product) %></td>
+    <td><%= link_to 'Удалить', product, :confirm => 'Вы уверены?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<div class="Next">
+<%= link_to 'Новый', new_product_path %>
+<%= will_paginate @current_object %>
+</div>
+

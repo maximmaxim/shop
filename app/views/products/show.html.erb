@@ -1,0 +1,42 @@
+<p>
+  <b>Имя:</b>
+  <%=h @product.name %>
+</p>
+
+<p>
+  <b>Модель:</b>
+  <%=h @product.model_of_name %>
+</p>
+
+<p>
+  <b>Описание:</b>
+  <%=h @product.description %>
+</p>
+
+
+<p>
+  <b>Размер:</b>
+  <%=h @product.size %>
+</p>
+
+<p>
+  <b>Количество:</b>
+  <%=h @product.quontity %>
+</p>
+
+<p>
+  <b>Цена:</b>
+  <%=h @product.price %>
+</p>
+
+<p>
+  <b>Цвет:</b>
+  <%=h @product.color %>
+</p>
+<p>
+  <b>Картинка:</b> 
+<br> 
+<%= image_tag @product.avatar.url(:medium) %>
+</p>
+<%= link_to 'Исправить', edit_product_path(@product) %> |
+<%= link_to 'Назад', products_path %>

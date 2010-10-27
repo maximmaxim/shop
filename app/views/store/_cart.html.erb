@@ -1,0 +1,10 @@
+<div>Ваша корзина</div>
+<table>
+<%= render(:partial => "cart_item", :collevtion => cart.items) %>
+<tr>
+  <td colspan="2">Итого:</td>
+  <td> <%= number_to_currency(cart.total_price) %></td>
+</tr>
+</table>
+<button_to "Оформить заказ", :action => :checkout %>
+<button_to "Очистить корзину", :action => :empty_cart%>
