@@ -57,20 +57,11 @@ Rails::Initializer.run do |config|
   # Make Time.zone default to the specified zone, and make Active Record store time values
   # in the database in UTC, and return them converted to the specified local zone.
   # Run "rake -D time" for a list of tasks for finding time zone names. Comment line to use default local time.
-  config.time_zone = 'UTC'
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-   :address => "smtp.gmail.com",
-   :port => "587",
-   :domain => "localhost.localdomain",
-   :authentication => :plain,
-   :user_name => "maximummaxx88@gmail.com",
-   :password => "mail5570036"
-}
+ 
  
  # config.action_mailer.raise_delivery_errors = false
  # config.action_mailer.delivery_method = :smtp
-   config.action_mailer.default_content_type = "text/html"
+  # config.action_mailer.default_content_type = "text/html"
  # config.action_mailer.default_url_options = { :host =>
 #"domainname.com" }
 #  config.action_mailer.smtp_settings = {
@@ -113,3 +104,17 @@ Rails::Initializer.run do |config|
   # Please note that observers generated using script/generate observer need to have an _observer suffix
   # config.active_record.observers = :cacher, :garbage_collector, :forum_observer
 end
+ActionMailer::Base.delivery_method = :smtp
+ActionMailer::Base.perform_deliveries = true  
+ActionMailer::Base.raise_delivery_errors = true
+ActionMailer::Base.default_charset = "utf-8" 
+ActionMailer::Base.smtp_settings = {
+    :address        => 'smtp.gmail.com',
+    :port           => 587, 
+    :domain         => 'gmail.com',
+    :authentication => :plain,
+    :user_name      => 'maximummaxx88@gmail.com',
+    :password       => 'mail5570036',
+    :enable_starttls_auto => true  
+
+}
