@@ -17,6 +17,7 @@ class OrdersController < ApplicationController
     end
     order.done='Yes'
     order.update_attributes(params[:order])
+    Notifier.deliver_user_confirmation(order) 
     redirect_to :action=>'index'
  end
 

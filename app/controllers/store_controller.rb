@@ -9,6 +9,7 @@ class StoreController < ApplicationController
    @order=Order.new(params[:order])
    @order.add_line_items_from_cart(@cart)
    if @order.save
+      Notifier.deliver_user_confirmation(@order)
      session[:cart] = nil
      redirect_to :action=> :index
 	 flash[:notice] = "Спасибо за Ваш заказ!"
@@ -55,6 +56,7 @@ class StoreController < ApplicationController
    else 
       @order = Order.new
    end
+   
   end
 
   private 
