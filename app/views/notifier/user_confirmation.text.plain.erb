@@ -1,2 +1,18 @@
-Hi , we just want to remember you your's purchasing:
+Здравствуйте, уважаемый(ая) <%=@order.name%>. мы напоминаем вам о ваших приобретениях в нашем интернет магазине:
+Вы заказали:
+<%@summarno=0%>
+<%for it in @item
+  product=it.product%>
+<%=product.name%>  <%=it.quantity%>шт. по цене: <%=it.total_price%>
+<%@summarno += it.total_price%>
+<%end%>
+----------------------------
+Итого: <%=@summarno%>
 
+Спасибо за то, что выбрали нас!
+
+
+
+		
+		
+              

@@ -1,6 +1,6 @@
 class Product < ActiveRecord::Base
  has_many :line_items
- has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => 'rails.png'
+ has_attached_file :avatar, :styles => { :medium => "200x200>", :thumb => "100x100>" }, :default_url => 'rails.png'
 
 validates_presence_of :name, :quontity, :price
 

@@ -1,9 +1,7 @@
+<center>
 <h1>Ваша корзина</h1>
-<%if ( @cart.items.empty? )%>
-В корзине ничего нет!!
-<%else%>	  
 <div>
-<table border=1>
+<table border="0">
 <tr>
 <td>Товар</td>
 <td>Количество</td>
@@ -24,6 +22,8 @@
 </div>
 <%= button_to "Очистить корзину", :action=> :empty_cart %>
 
-<%end%>	
 
-<%=button_to "Назад в магазин", :action=> :index%>
+
+<%=button_to "Назад в магазин", :action=>:menu%>
+</center>
+

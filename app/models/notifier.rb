@@ -4,12 +4,12 @@ class Notifier < ActionMailer::Base
   default_content_type = "text/plain"   
 
 
-  def user_confirmation(order)
-    from        "maximummaxx88@gmail.com" 
+  def user_confirmation(order, item)
+    from        "shop.confirmation88@gmail.com" 
     subject    "confirmation of your's purchasing"
     sent_on       Time.now 
-    recipients order.mail
-    body['order'] = order
+    recipients  order.mail
+    body :order => order, :item=> item
   end
   
 
@@ -18,7 +18,6 @@ class Notifier < ActionMailer::Base
     recipients ''
     from       ''
     sent_on    sent_at
-    
     body       :greeting => 'Hi,'
   end
 

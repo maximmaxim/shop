@@ -7,7 +7,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :orders
 
- map.root :controller => "store", :action => "index"
+ map.root :controller => "store", :action => "menu"
 
   # The priority is based upon order of creation: first created -> highest priority.
 
